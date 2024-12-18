@@ -1,0 +1,321 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(135deg, #71a6f1, #5b7aa8);
+    padding: 10px 0;
+}
+
+.site-title {
+    color: #ffffff;
+    font-size: 24px;
+    text-decoration: none;
+    float: left;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+.nav-links li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #d1d1d1;
+}
+
+/* Table Styles */
+.game-table {
+    width: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.game-table th, .game-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.game-table th {
+    background-color: #f2f2f2;
+}
+
+.game-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Add Game Form Styles */
+.add-game-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.add-game-form h1 {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+.add-game-form input {
+    width: 100%; /* Adjusted width to accommodate the margin */
+    margin-right: 10px; /* Added right margin */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
+
+.add-game-form select {
+    /* Styles for select elements if needed */
+    width: 100%; /* Ensure consistency if select elements need the same styling */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+.add-game-form button {
+    background-color: #4a76a8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .add-game-form input, .add-game-form select {
+        width: 100%; /* Full width on smaller screens */
+        margin-right: 0; /* Remove right margin on smaller screens */
+    }
+}
+.add-game-form button:hover {
+    background-color: #3d5b83;
+}
+
+.add-game-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-game-form p {
+    margin: 0;
+}
+
+/* Search Form Styles */
+.search-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+}
+
+.search-form button {
+    background-color: #c80000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.search-form button:hover {
+    background-color: #ff4500;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-container form {
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-container select {
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    appearance: none;
+    background-color: transparent;
+    background-image: url('path_to_dropdown_arrow.png');
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 10%;
+}
+
+.search-container button {
+    background-color: #4a76a8;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    font-size: 18px;
+    float: right;
+}
+#min-max-fields input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-left: 1px solid #ccc;
+}
+
+#min-max-fields input:first-child {
+    border-right: 1px solid #ccc;
+}
+#text-input, #numeric-input {
+    margin-top: 10px;
+}
+.search-container form {
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#search-fields {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-left: 10px;
+}
+
+#text-input input, #numeric-input input {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+#numeric-input input:last-child {
+    margin-right: 0;
+}
+
+button {
+    flex-shrink: 0;
+    background-color: #4a76a8;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #355c83;
+}
+
+.table-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.game-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.search-container button:hover {
+    background-color: #355c83;
+}
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+    }
+    .search-container form {
+        margin-bottom: 10px;
+    }
+    .search-container button {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#search-fields {
+    flex: 1;
+}
+
+.search-container button {
+    margin-left: auto; /* Pushes the button to the right */
+    height: 50px;
+
+}
+select#search-param {
+    width: 200px; /* Adjust the width as needed */
+    box-sizing: border-box; /* Includes padding and border in the width */
+    padding: 5px; /* Adjust padding as desired */
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Каталог Игр{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="header">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="{% url 'game_list' %}">Главная</a></li>
+                <li><a href="{% url 'add_game' %}">Добавить</a></li>
+                <li><a href="{% url 'admin:index' %}">Админка</a></li>
+            </ul>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>

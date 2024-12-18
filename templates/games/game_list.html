@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Список игр</h1>
+<div class="search-container">
+    <form id="search-form" method="get" action="{% url 'game_list' %}">
+        <select name="search_param" id="search-param">
+            <option value="title">Название</option>
+            <option value="developer">Разработчик</option>
+            <option value="publisher">Издатель</option>
+            <option value="release_year">Год</option>
+            <option value="price">Цена</option>
+            <option value="genre">Жанр</option>
+       </select>
+        <div id="search-fields">
+            <div id="text-input" style="display:none;">
+                <input type="text" name="q" placeholder="Enter text">
+            </div>
+            <div id="numeric-input" style="display:none;">
+                <input type="number" name="min_value" placeholder="Min">
+                <input type="number" name="max_value" placeholder="Max">
+            </div>
+            <button type="submit">Search</button>
+        </div>
+    </form>
+</div>
+<div class="table-wrapper">
+<table class="game-table">
+    <thead>
+        <tr>
+            <th>Год</th>
+            <th>Название</th>
+            <th>Жанр</th>
+            <th>Разработчик</th>
+            <th>Издатель</th>
+            <th>Цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for game in games %}
+        <tr>
+            <td>{{ game.release_year }}</td>
+            <td>{{ game.title }}</td>
+            <td>{{ game.genre }}</td>
+            <td>{{ game.developer }}</td>
+            <td>{{ game.publisher }}</td>
+            <td>{{ game.price }} $</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+<script>
+document.getElementById('search-param').addEventListener('change', function() {
+    const param = this.value;
+    const textInput = document.getElementById('text-input');
+    const numericInput = document.getElementById('numeric-input');
+    if (['title', 'developer', 'publisher', 'genre'].includes(param)) {
+        textInput.style.display = 'block';
+        numericInput.style.display = 'none';
+    } else if (['release_year', 'price'].includes(param)) {
+        textInput.style.display = 'none';
+        numericInput.style.display = 'block';
+    }
+});
+</script>
+{% endblock %}
