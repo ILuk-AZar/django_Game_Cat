@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Game, Genre
+from .models import Game, Genre, Developer, Publisher, Platform
 from .forms import GameForm
 from django.db.models import Q
 
@@ -15,9 +15,9 @@ def game_list(request):
         if search_param == 'title':
             games = games.filter(title__icontains=query)
         elif search_param == 'developer':
-            games = games.filter(developer__icontains=query)
+            games = games.filter(developer__name__icontains=query)
         elif search_param == 'publisher':
-            games = games.filter(publisher__icontains=query)
+            games = games.filter(publisher__name__icontains=query)
         elif search_param == 'genre':
             games = games.filter(genre__name__icontains=query)
         elif search_param == 'release_year':
@@ -26,8 +26,11 @@ def game_list(request):
         elif search_param == 'price':
             if min_value and max_value:
                 games = games.filter(price__range=(min_value, max_value))
+        elif search_param == 'platforms':
+            games = games.filter(platforms__name__icontains=query)
 
     return render(request, 'games/game_list.html', {'games': games})
+
 def add_game(request):
     if request.method == 'POST':
         form = GameForm(request.POST)
