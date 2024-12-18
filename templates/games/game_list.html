@@ -5,14 +5,14 @@
     <div class="search-container">
         <form id="search-form" method="get" action="{% url 'game_list' %}">
             <select name="search_param" id="search-param">
-    <option value="title">Название</option>
-    <option value="developer">Разработчик</option>
-    <option value="publisher">Издатель</option>
-    <option value="genre">Жанр</option>
-    <option value="release_year">Год</option>
-    <option value="price">Цена</option>
-    <option value="platforms">Платформа</option>
-</select>
+                <option value="title">Название</option>
+                <option value="developer">Разработчик</option>
+                <option value="publisher">Издатель</option>
+                <option value="genre">Жанр</option>
+                <option value="release_year">Год</option>
+                <option value="price">Цена</option>
+                <option value="platforms">Платформа</option>
+            </select>
             <div id="search-fields">
                 <div id="text-input" style="display:none;">
                     <input type="text" name="q" placeholder="Enter text">
@@ -27,35 +27,39 @@
     </div>
     <div class="table-wrapper">
         <table class="game-table">
-    <thead>
-        <tr>
-            <th>Год</th>
-            <th>Название</th>
-            <th>Жанр</th>
-            <th>Разработчик</th>
-            <th>Издатель</th>
-            <th>Платформа</th>
-            <th>Цена</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for game in games %}
-        <tr>
-            <td>{{ game.release_year }}</td>
-            <td>{{ game.title }}</td>
-            <td>{{ game.genre }}</td>
-            <td>{{ game.developer }}</td>
-            <td>{{ game.publisher }}</td>
-            <td>
-                {% for platform in game.platforms.all %}
-                {{ platform.name }}<br>
+            <thead>
+                <tr>
+                    <th>Год</th>
+                    <th>Название</th>
+                    <th>Жанр</th>
+                    <th>Разработчик</th>
+                    <th>Издатель</th>
+                    <th>Платформы</th>
+                    <th>Цена</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in games %}
+                <tr>
+                    <td>{{ game.release_year }}</td>
+                    <td>{{ game.title }}</td>
+                    <td>{{ game.genre }}</td>
+                    <td>{{ game.developer }}</td>
+                    <td>{{ game.publisher }}</td>
+                    <td>
+                        {% for platform in game.platforms.all %}
+                        {{ platform.name }}<br>
+                        {% endfor %}
+                    </td>
+                    <td>{{ game.price }} $</td>
+                    <td>
+                        <a href="{% url 'delete_game' game.id %}" class="delete-link" onclick="return confirm('Вы уверены, что хотите удалить эту игру?');">Удалить</a>
+                    </td>
+                </tr>
                 {% endfor %}
-            </td>
-            <td>{{ game.price }} $</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+            </tbody>
+        </table>
     </div>
 </div>
 <script>

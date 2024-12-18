@@ -40,3 +40,11 @@ def add_game(request):
     else:
         form = GameForm()
     return render(request, 'games/add_game.html', {'form': form})
+
+from django.shortcuts import get_object_or_404, redirect
+
+def delete_game(request, game_id):
+    game = get_object_or_404(Game, pk=game_id)
+    # Optionally check if the user has permission to delete
+    game.delete()
+    return redirect('game_list')
